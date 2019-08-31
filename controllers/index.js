@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require("../models/work");
 
 // Defining methods for the WorksController
 module.exports = {

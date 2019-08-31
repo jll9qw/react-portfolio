@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "seedWorks": "node scripts/seedWorks.js",
-    "index": "node scripts/indexDB.js"
+    "index": "node scripts/indexDB.js",
+    "seedWorks": "node scripts/seedWorksDB.js"
+
 
 
   },
