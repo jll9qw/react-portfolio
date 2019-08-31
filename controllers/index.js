@@ -1,20 +1,20 @@
-const db = require("../models/work");
+const db = require("../models/Project");
 
-// Defining methods for the WorksController
+// Defining methods for the ProjectsController
 module.exports = {
   findAll: function(req, res) {
-    db.Work.find(req.query)
+    db.Project.find(req.query)
       // .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.Work.findById(req.params.id)
+    db.Project.findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   searchByTerm: (req, res) => {
-    db.Work.find(
+    db.Project.find(
       { $text: { $search: req.params.query } },
       { score: { $meta: "textScore" } }
     )
@@ -23,17 +23,17 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.Work.create(req.body)
+    db.Project.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.Work.findOneAndUpdate({ _id: req.params.id }, req.body)
+    db.Project.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.Work.findById({ _id: req.params.id })
+    db.Project.findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const WorkSchema = new Schema({
+const ProjectSchema = new Schema({
   name: String,
   description: String,
   github: String,
@@ -10,6 +10,6 @@ const WorkSchema = new Schema({
 
 
 // naming the collection and schema to be used
-const Work = mongoose.model("Work", WorkSchema);
+const Project = mongoose.model("Project", ProjectSchema);
 
-module.exports = Work;
+module.exports = Project;

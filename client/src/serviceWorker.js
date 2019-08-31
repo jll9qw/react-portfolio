@@ -1,4 +1,4 @@
-// This optional code is used to register a service worker.
+// This optional code is used to register a service Projecter.
 // register() is not called by default.
 
 // This lets the app load faster on subsequent visits in production, and gives
@@ -21,33 +21,33 @@ const isLocalhost = Boolean(
 );
 
 export function register(config) {
-  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+  if (process.env.NODE_ENV === 'production' && 'serviceProjecter' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
     if (publicUrl.origin !== window.location.origin) {
-      // Our service worker won't work if PUBLIC_URL is on a different origin
+      // Our service Projecter won't Project if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
       // serve assets; see https://github.com/facebook/create-react-app/issues/2374
       return;
     }
 
     window.addEventListener('load', () => {
-      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+      const swUrl = `${process.env.PUBLIC_URL}/service-Projecter.js`;
 
       if (isLocalhost) {
-        // This is running on localhost. Let's check if a service worker still exists or not.
-        checkValidServiceWorker(swUrl, config);
+        // This is running on localhost. Let's check if a service Projecter still exists or not.
+        checkValidServiceProjecter(swUrl, config);
 
         // Add some additional logging to localhost, pointing developers to the
-        // service worker/PWA documentation.
-        navigator.serviceWorker.ready.then(() => {
+        // service Projecter/PWA documentation.
+        navigator.serviceProjecter.ready.then(() => {
           console.log(
             'This web app is being served cache-first by a service ' +
-              'worker. To learn more, visit https://bit.ly/CRA-PWA'
+              'Projecter. To learn more, visit https://bit.ly/CRA-PWA'
           );
         });
       } else {
-        // Is not localhost. Just register service worker
+        // Is not localhost. Just register service Projecter
         registerValidSW(swUrl, config);
       }
     });
@@ -55,19 +55,19 @@ export function register(config) {
 }
 
 function registerValidSW(swUrl, config) {
-  navigator.serviceWorker
+  navigator.serviceProjecter
     .register(swUrl)
     .then(registration => {
       registration.onupdatefound = () => {
-        const installingWorker = registration.installing;
-        if (installingWorker == null) {
+        const installingProjecter = registration.installing;
+        if (installingProjecter == null) {
           return;
         }
-        installingWorker.onstatechange = () => {
-          if (installingWorker.state === 'installed') {
-            if (navigator.serviceWorker.controller) {
+        installingProjecter.onstatechange = () => {
+          if (installingProjecter.state === 'installed') {
+            if (navigator.serviceProjecter.controller) {
               // At this point, the updated precached content has been fetched,
-              // but the previous service worker will still serve the older
+              // but the previous service Projecter will still serve the older
               // content until all client tabs are closed.
               console.log(
                 'New content is available and will be used when all ' +
@@ -94,28 +94,28 @@ function registerValidSW(swUrl, config) {
       };
     })
     .catch(error => {
-      console.error('Error during service worker registration:', error);
+      console.error('Error during service Projecter registration:', error);
     });
 }
 
-function checkValidServiceWorker(swUrl, config) {
-  // Check if the service worker can be found. If it can't reload the page.
+function checkValidServiceProjecter(swUrl, config) {
+  // Check if the service Projecter can be found. If it can't reload the page.
   fetch(swUrl)
     .then(response => {
-      // Ensure service worker exists, and that we really are getting a JS file.
+      // Ensure service Projecter exists, and that we really are getting a JS file.
       const contentType = response.headers.get('content-type');
       if (
         response.status === 404 ||
         (contentType != null && contentType.indexOf('javascript') === -1)
       ) {
-        // No service worker found. Probably a different app. Reload the page.
-        navigator.serviceWorker.ready.then(registration => {
+        // No service Projecter found. Probably a different app. Reload the page.
+        navigator.serviceProjecter.ready.then(registration => {
           registration.unregister().then(() => {
             window.location.reload();
           });
         });
       } else {
-        // Service worker found. Proceed as normal.
+        // Service Projecter found. Proceed as normal.
         registerValidSW(swUrl, config);
       }
     })
@@ -127,8 +127,8 @@ function checkValidServiceWorker(swUrl, config) {
 }
 
 export function unregister() {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.ready.then(registration => {
+  if ('serviceProjecter' in navigator) {
+    navigator.serviceProjecter.ready.then(registration => {
       registration.unregister();
     });
   }

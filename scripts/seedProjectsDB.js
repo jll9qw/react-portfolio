@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const db = require("../models");
-// This file empties the Works collection and inserts the portfolio pieces
+// This file empties the Projects collection and inserts the portfolio pieces
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/portfolio");
 
-const seedWorks = [
+const seedProjects = [
      
     {
       
@@ -38,8 +38,8 @@ const seedWorks = [
       description: "A server-side application using Node.js and axios to obtain responses from Spotify, BandsInTown, and IMDB"
     }
   ];
-  db.Work.remove({})
-  .then(() => db.Work.collection.insertMany(seedWorks))
+  db.Project.remove({})
+  .then(() => db.Project.collection.insertMany(seedProjects))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

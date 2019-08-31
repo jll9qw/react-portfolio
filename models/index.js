@@ -1,4 +1,4 @@
 module.exports = {
-    Work: require("./work")
+    Project: require("./Project")
   };
   
