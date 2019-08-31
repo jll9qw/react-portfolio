@@ -3,7 +3,7 @@ const controller = require("../../controllers");
 
 // Matches with "/api/herbs/"
 router
-  .route("/")
+  .route("/portfolio")
   .get(controller.findAll)
   .post(controller.create);
 
