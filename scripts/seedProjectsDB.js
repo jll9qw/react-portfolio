@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+
 // This file empties the Projects collection and inserts the portfolio pieces
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/portfolio");
