@@ -1,17 +1,15 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio'
 import NavTabs from "./components/NavTabs"
+import Footer from "./components/Footer"
 
 
-class App extends component{
+class App extends Component{
 	state = {
-		page: '',
-		previousResults: [],
-		currentResults: [],
-		result: null,
-		userData: null
+		page: ''
   };
   // set state and work on routes for pages 
   // 
@@ -24,49 +22,31 @@ class App extends component{
 		return (
 			<Router>
 				<Fragment>
-					<Header
+					<NavTabs
 						page={this.state.page}
-						updateResults={this.updateResults}
-						getUserData={this.getUserData}
 					/>
 					<Switch>
 						<Route
 							exact
 							path='/'
-							render={props => <Home getPage={this.getPage} />}
+							render={props => <About getPage={this.getPage} />}
 						/>
 
 						<Route
 							exact
-							path='/aboutUs'
-							render={props => <AboutUs getPage={this.getPage} />}
+							path='/contact'
+							render={props => <Contact getPage={this.getPage} />}
 						/>
 
 						<Route
-							path='/search'
+							path='/portfolio'
 							render={props => (
-								<Search
+								<Portfolio
 									results={this.state.currentResults}
 									getPage={this.getPage}
-									getResult={this.getResult}
 								/>
 							)}
 						/>
-
-						<Route
-							path='/result'
-							render={props => (
-								<Result
-									getPage={this.getPage}
-									result={this.state.result}
-                  userData={this.state.userData}
-                  checkLogIn={this.checkLogIn}
-								/>
-							)}
-						>
-							{console.log('Route for /result was loaded/hit...')}
-						</Route>
-						<Route component={NoMatch} />
 					</Switch>
 					<Footer />
 				</Fragment>

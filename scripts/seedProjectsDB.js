@@ -2,6 +2,11 @@ const mongoose = require("mongoose");
 const db = require("../models");
 
 // This file empties the Projects collection and inserts the portfolio pieces
+// use npm run seedProjects in terminal
+
+// Things to do.....
+// 1. put assests in db
+// 2. 
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/portfolio");
 

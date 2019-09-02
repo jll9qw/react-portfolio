@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import * as serviceProjecter from './serviceProjecter';
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to Project offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service Projecters: https://bit.ly/CRA-PWA
-serviceProjecter.unregister();
+serviceWorker.unregister();

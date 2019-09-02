@@ -21,7 +21,7 @@ const isLocalhost = Boolean(
 );
 
 export function register(config) {
-  if (process.env.NODE_ENV === 'production' && 'serviceProjecter' in navigator) {
+  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
     if (publicUrl.origin !== window.location.origin) {
@@ -36,11 +36,11 @@ export function register(config) {
 
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service Projecter still exists or not.
-        checkValidServiceProjecter(swUrl, config);
+        checkValidserviceWorker(swUrl, config);
 
         // Add some additional logging to localhost, pointing developers to the
         // service Projecter/PWA documentation.
-        navigator.serviceProjecter.ready.then(() => {
+        navigator.serviceWorker.ready.then(() => {
           console.log(
             'This web app is being served cache-first by a service ' +
               'Projecter. To learn more, visit https://bit.ly/CRA-PWA'
@@ -55,7 +55,7 @@ export function register(config) {
 }
 
 function registerValidSW(swUrl, config) {
-  navigator.serviceProjecter
+  navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
       registration.onupdatefound = () => {
@@ -65,7 +65,7 @@ function registerValidSW(swUrl, config) {
         }
         installingProjecter.onstatechange = () => {
           if (installingProjecter.state === 'installed') {
-            if (navigator.serviceProjecter.controller) {
+            if (navigator.serviceWorker.controller) {
               // At this point, the updated precached content has been fetched,
               // but the previous service Projecter will still serve the older
               // content until all client tabs are closed.
@@ -98,7 +98,7 @@ function registerValidSW(swUrl, config) {
     });
 }
 
-function checkValidServiceProjecter(swUrl, config) {
+function checkValidserviceWorker(swUrl, config) {
   // Check if the service Projecter can be found. If it can't reload the page.
   fetch(swUrl)
     .then(response => {
@@ -109,7 +109,7 @@ function checkValidServiceProjecter(swUrl, config) {
         (contentType != null && contentType.indexOf('javascript') === -1)
       ) {
         // No service Projecter found. Probably a different app. Reload the page.
-        navigator.serviceProjecter.ready.then(registration => {
+        navigator.serviceWorker.ready.then(registration => {
           registration.unregister().then(() => {
             window.location.reload();
           });
@@ -127,8 +127,8 @@ function checkValidServiceProjecter(swUrl, config) {
 }
 
 export function unregister() {
-  if ('serviceProjecter' in navigator) {
-    navigator.serviceProjecter.ready.then(registration => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.ready.then(registration => {
       registration.unregister();
     });
   }
