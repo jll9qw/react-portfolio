@@ -1,12 +1,9 @@
-import React, { Component, Fragment } from "react";
+import React from "react"
 // import { Link } from "react-router-dom";
 import "./style.css";
-
-class Footer extends Component {
-  state = {};
-  render() {
+const Footer = (props) =>{
     return (
-      <Fragment>
+     
         <footer className="d-flex justify-content-center py-2 py-md-2 ui_gradient2- bg-light bg-white-">
           <div className="container px-0 d-flex flex-column justify-content-center py-2 bg-white- round_corner- shadow-sm-">
             <ul className="nav flex-column flex-md-row justify-content-center align-items-center px-0">
@@ -45,9 +42,8 @@ class Footer extends Component {
             </ul>
           </div>
         </footer>
-      </Fragment>
     );
   }
-}
+
 
 export default Footer;

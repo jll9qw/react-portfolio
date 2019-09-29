@@ -1,40 +1,30 @@
-import React from "react";
-import ProjectCard from "../components/ProjectCard"
-import API from "../utils/API"
-import Wrapper from "../components/Wrapper"
+import React, { Component, Fragment } from "react";
+import Main from "../components/Main";
+import API from "../utils/API";
+import SearchResults from "../components/SearchResults";
 
-class Portfolio extends Component{
-
+class Portfolio extends Component {
   state = {
+    page: "searchResults",
     API
   };
 
-  componentDidMount() {
-    this.loadProjects();
+  componentDidMount(){
+    this.props.getPage(this.state.page);
   }
 
-  loadProjects = () => {
-    API.getProjects()
-      .then(res => this.setState({ Projects: res.data }))
-      .catch(err => console.log(err));
-  };
-
-render(){
-return(
-  {this.state.props.map(prop => (
-    <ProjectCard
-      id={prop.id}
-      key={prop.id}
-      name={prop.name}
-      image={prop.image}
-      description={prop.description}
-      github={prop.github}
-    />
-  ))}
-
-)
-}
- 
+  render() {
+    return (
+      <Fragment>
+        <Main>
+          <SearchResults
+            results={this.props.results}
+            getResult={this.props.getResult}
+          />
+        </Main>
+      </Fragment>
+    );
+  }
 }
 
 export default Portfolio;

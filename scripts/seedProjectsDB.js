@@ -44,7 +44,7 @@ const seedProjects = [
       description: "A server-side application using Node.js and axios to obtain responses from Spotify, BandsInTown, and IMDB"
     }
   ];
-  db.Project.remove({})
+  db.Project.deleteMany({})
   .then(() => db.Project.collection.insertMany(seedProjects))
   .then(data => {
     console.log(data.result.n + " records inserted!");

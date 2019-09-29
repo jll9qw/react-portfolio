@@ -5,14 +5,27 @@ import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio'
 import NavTabs from "./components/NavTabs"
 import Footer from "./components/Footer"
-
+import API from "./utils/API";
 
 class App extends Component{
 	state = {
-		page: ''
+		page: '',
+result:null,
+currentResults: [],
+
   };
   // set state and work on routes for pages 
   // 
+  loadProjects = () => {
+	API.getProjects()
+	  .then(res => this.setState({ projects: res.data }))
+	  .catch(err => console.log(err));
+  };
+  getResult = data => {
+	this.setState({ result: data });
+};
+
+  
 
 	getPage = currentPage => {
 		this.setState({ page: currentPage });
@@ -41,10 +54,12 @@ class App extends Component{
 						<Route
 							path='/portfolio'
 							render={props => (
+								
 								<Portfolio
-									results={this.state.currentResults}
-									getPage={this.getPage}
-								/>
+								loadProjects={this.state.loadProjects}
+								getPage={this.getPage}
+								getResult={this.getResult}
+											  />
 							)}
 						/>
 					</Switch>
